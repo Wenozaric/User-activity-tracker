@@ -36,11 +36,16 @@ docker-compose up --build
 
 ## Локальный запуск ( без Docker )
 
+# Для локальной сборки вместо postgresql://postgres:password@postgres:5432/user_activity нужно использовать @localhost
+**postgresql://postgres:password@localhost:5432/user_activity**
+
 ```bash
 
 cd backend
 npm install
 npx prisma generate
+# Копируем .env, иначе призма не запустится
+npm run copy-env
 npm run dev
 
 # Выполните во втором терминале
