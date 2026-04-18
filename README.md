@@ -23,7 +23,7 @@
 
 ```bash
 # 1. Склонировать репозиторий
-git clone https://github.com/YOUR_USERNAME/user-activity-tracker.git
+git clone https://github.com/Wenozaric/user-activity-tracker.git
 cd user-activity-tracker
 
 # 2. Создать .env из примера
