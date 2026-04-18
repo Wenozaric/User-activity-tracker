@@ -19,7 +19,7 @@
 - Rate limiting для защиты API
 - Docker + .env для безопасного запуска
 
-## Быстрый старт (Docker)
+## Копируем проект
 
 ```bash
 # 1. Склонировать репозиторий
@@ -29,15 +29,16 @@ cd user-activity-tracker
 # 2. Создать .env из примера
 cp .env.example .env
 # Отредактируй .env (пароли, секреты, базу данных)
-
-# 3. Запустить всё одной командой
-docker-compose up --build
 ```
 
 ## Локальный запуск ( без Docker )
 
-# Для локальной сборки вместо postgresql://postgres:password@postgres:5432/user_activity нужно использовать @localhost
+# Для локальной сборки нужно обязательно создать базу данных в pgAdmin
+
+Для локальной сборки вместо postgresql://postgres:password@postgres:5432/user_activity нужно использовать @localhost
 **postgresql://postgres:password@localhost:5432/user_activity**
+
+## Где password нужно поменять на пароль от базы данных
 
 ```bash
 
@@ -54,12 +55,19 @@ npm install
 npm run dev
 
 ```
+## Быстрый запуск ( Docker )
+
+```bash
+docker-compose up --build
+```
 
 ## Приложение будет доступно:
 
- - # Backend: http://localhost:5005
+ - Backend: http://localhost:5005
 
- - # Frontend: http://localhost:80
+ - Frontend: http://localhost:80 ( Docker )
+
+ - Frontend: http://localhost:5173 ( Vite )
 
 
 ##  ВАЖНО

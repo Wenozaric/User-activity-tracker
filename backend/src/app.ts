@@ -52,7 +52,7 @@ app.set('trust proxy', 1)
 app.use(limiter)
 
 app.use(cors({
-    origin: 'http://localhost',
+    origin: ['http://localhost:5173', 'http://localhost:80'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization']     
 }))
