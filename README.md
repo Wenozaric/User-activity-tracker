@@ -40,6 +40,7 @@ docker-compose up --build
 
 cd backend
 npm install
+npx prisma generate
 npm run dev
 
 # Выполните во втором терминале
@@ -68,6 +69,22 @@ npm run dev
 
 - Все переменные подключения к БД **обязательно должны быть заполнены в файле .env**
 
+## Частые проблемы и решения
+
+### Ошибка аутентификации PostgreSQL (password authentication failed)
+
+**Симптомы:** Контейнер с БД падает с ошибкой `FATAL: password authentication failed`
+
+**Причина:** Docker сохранил старый volume с данными БД, где пароль отличается от текущего в `.env`
+
+**Решение:**
+```bash
+# Остановить все контейнеры и удалить volume с данными БД
+docker-compose down -v
+
+# Запустить заново
+docker-compose up --build
+```
 
 ## Если понравился проект — поставь звезду!
 **Автор**: Wenozaric
