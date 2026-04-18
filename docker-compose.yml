@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    command: sh -c "npx prisma db push && node src/app.js"
+    image: wenozaric/backend:v1.0.2
+    ports:
+      - '5005:5005'
+    container_name: 'tracker-backend'
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    volumes:
+    - ./.env:/app/.env
+  
+  postgres:
+    image: postgres:15-alpine
+    container_name: 'tracker-db'
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - '5432:5432'
+  
+  frontend:
+    image: wenozaric/frontend:v1.0.2
+    build: ./frontend
+    container_name: 'tracker-frontend'
+    ports:
+      - '80:80'
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
