@@ -32,15 +32,9 @@ export const useTaskStore = create<TasksStore>(set => ({
             set({ tasksIsLoading: true });
 
             const res = await tasksService.getTasks();
-
-            // 1. Проверяем: если это массив — берем его. 
-            // 2. Если это объект с полем tasks — берем поле.
-            // 3. Иначе — пустой массив.
             const data = Array.isArray(res)
                 ? res
                 : (res && (res as any).tasks ? (res as any).tasks : []);
-
-            // Используем простую запись set({ ... }), так как старое состояние (state) нам не нужно
             set({ tasks: data });
 
         } catch (e) {

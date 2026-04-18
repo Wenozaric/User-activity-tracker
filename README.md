@@ -31,14 +31,15 @@ cp .env.example .env
 # Отредактируй .env (пароли, секреты, базу данных)
 ```
 
-## Локальный запуск ( без Docker )
+### Локальный запуск (без Docker)
 
-# Для локальной сборки нужно обязательно создать базу данных в pgAdmin
-
-Для локальной сборки вместо postgresql://postgres:password@postgres:5432/user_activity нужно использовать @localhost
-**postgresql://postgres:password@localhost:5432/user_activity**
-
-## Где password нужно поменять на пароль от базы данных
+> **Важно:** Для локальной сборки нужно создать базу данных в pgAdmin и заменить в `.env`:
+> 
+> ```
+> DATABASE_URL="postgresql://postgres:ваш_пароль@localhost:5432/user_activity"
+> ```
+> 
+> Вместо `postgresql://postgres:password@postgres:5432/user_activity`
 
 ```bash
 

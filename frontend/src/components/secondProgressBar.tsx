@@ -3,20 +3,11 @@ import { useStateStore } from '../store/useStatsStore'
 
 export const SecondProgressBar = () => {
 	const uniqueId = useId().replace(/:/g, '')
-
-	// Получаем данные из Zustand
-
 	const totalTimeInDb = useStateStore(state => state.totalTime) || 0
 
-	
-	
 	const daysCount = useStateStore(state => state.days) || 1
 	const goalTime = useStateStore(state => state.goalTime) || 100
-
-	// 2. Считаем среднее время в день из общих данных
 	const averageTimePerDay = Math.round(totalTimeInDb / daysCount)
-	// 3. Считаем процент выполнения плана
-    //console.log('goaltime ' + goalTime)
 	const percent = Math.round((averageTimePerDay / goalTime) * 100)
 
 	const r = 45

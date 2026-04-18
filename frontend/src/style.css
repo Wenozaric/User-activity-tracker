@@ -20,11 +20,8 @@ input:-webkit-autofill:active {
 }
 
 @theme {
-  /* Регистрация кастомных анимаций */
   --animate-show-content: appear 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   --animate-slow-pulse: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-
-  /* Описание ключевых кадров (Keyframes) */
   @keyframes appear {
     from {
       opacity: 0;

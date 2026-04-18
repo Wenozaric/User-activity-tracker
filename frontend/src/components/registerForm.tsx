@@ -79,16 +79,10 @@ export const RegisterForm = () => {
 		e: React.ChangeEvent<HTMLInputElement>,
 		shape: T
 	) => {
-		// Инициализируем объект с правильным типом ключей
 		const value = e.target.value
 		const results = {} as Record<keyof T, boolean>
-
-		// Проходимся по всем правилам в схеме
 		for (const key in shape) {
-			// 1. Достаем конкретную схему (правило) по ключу
 			const rule = shape[key] as any
-
-			// 2. Валидируем строку этим правилом и сохраняем true/false
 			results[key] = rule.safeParse(value).success
 		}
 		return results

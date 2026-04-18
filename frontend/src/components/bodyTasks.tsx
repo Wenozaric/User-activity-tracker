@@ -48,16 +48,11 @@ export const BodyTasks = (): React.ReactNode => {
 	return (
 		<div className='bg-[#0f0a1e] text-white font-sans flex-1 flex flex-col relative'>
 			<div className='flex flex-row flex-1'>
-				{/* Левая панель остается на месте */}
 				<DashboardProfile />
-
-				{/* Правая часть с контентом */}
 				<div className='flex flex-col p-5 grow relative'>
 					<div className='text-xl mt-2 font-bold tracking-widest uppercase mb-8'>
 						Tasks
 					</div>
-
-					{/* Если задач нет - показываем пустой экран */}
 					{tasks.length === 0 ? (
 						<div className='flex-1 flex flex-col items-center justify-center gap-8'>
 							<div className='relative w-full max-w-[450px] animate-show-content'>
@@ -86,7 +81,6 @@ export const BodyTasks = (): React.ReactNode => {
 							</div>
 						</div>
 					) : (
-						/* Если задачи есть - показываем сетку */
 						<div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 animate-show-content'>
 							{tasks.map(task => (
 								<div
@@ -100,7 +94,6 @@ export const BodyTasks = (): React.ReactNode => {
 									</p>
 								</div>
 							))}
-							{/* Кнопка "Добавить еще" в конце списка */}
 							<div
 								onClick={handleOpenCreate}
 								className='p-6 rounded-2xl border-2 border-dashed border-white/10 flex items-center justify-center cursor-pointer hover:border-purple-500/50 text-gray-500 hover:text-white transition-all'
@@ -111,8 +104,6 @@ export const BodyTasks = (): React.ReactNode => {
 					)}
 				</div>
 			</div>
-
-			{/* ПОРТАЛ МЕНЮ */}
 			{createPortal(
 				<>
 					<div
