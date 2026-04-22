@@ -4,7 +4,8 @@
 
 ## Технологии
 
-- **Backend**: Node.js, Express, TypeScript, Prisma
+- **Frontend**: React, TypeScript, Zod, Zustand, React-router-dom, Tailwindcss
+- **Backend**: Node.js, Express, TypeScript, Prisma, Zod, Express-Sessions, Helmet, Bcrypt
 - **Database**: PostgreSQL
 - **Auth**: Session-based (cookie)
 - **Deploy**: Docker, Docker Compose
